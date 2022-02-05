@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter data</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+</head>
+<body>
+    <h3 class="text-center text-success">All Data</h3>
+    <div class="row">
+            <a class="col-3 m-5 btn btn-success" href="{% url 'data' '020' %}">020</a>
+            <a class="col-3 m-5 btn btn-success" href="{% url 'data' '019' %}">019</a>
+            <a class="col-3 m-5 btn btn-success" href="{% url 'data' '018' %}">018</a>
+            <a class="col-3 m-5 btn btn-success" href="{% url 'data' '017' %}">017</a>
+            <a class="col-3 m-5 btn btn-success" href="{% url 'data' '016' %}">016</a>
+            <a class="col-3 m-5 btn btn-success" href="{% url 'data' '015' %}">015</a>
+        </div>
+    </div>
+</body>
+</html>

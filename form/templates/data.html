@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البيانات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300;400;500;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: 'Tajawal', sans-serif !important;
+            font-size: 11px !important;
+        }
+    </style>
+</head>
+<body>
+    <h3 class="text-center text-success">صفحة البيانات</h3>
+
+    <!-------------- table one -------------->
+
+    <table class="mt-5 table table-striped table-hover">
+        <tr class="bg-success">
+            <td class="col text-white text-center">الاسم</td>
+            <td class="col text-white text-center">الدفعة</td>
+            <td class="col text-white text-center">الاندكس</td>
+            <td class="col text-white text-center">الولاية</td>
+            <td class="col text-white text-center">السكن</td>
+            <td class="col text-white text-center">السكن اثناء الدراسة</td>
+            <td class="col text-white text-center">حالة الوالد</td>
+            <td class="col text-white text-center">حالة الوالدة</td>
+            <td class="col text-white text-center">دخل الاسرة</td>
+            <td class="col text-white text-center">هل الدخل</td>
+            <td class="col text-white text-center">عدد الاخوة</td>
+            <td class="col text-white text-center">العمل اثناء الدراسة</td>
+
+        </tr>
+        {% for i in data %}
+
+        <tr>
+            <td class="text-center">{{i.name}}</td>
+            <td class="text-center">{{i.batch}}</td>
+            <td class="text-center">{{i.index}}</td>
+            <td class="text-center">{{i.state}}</td>
+            <td class="text-center">{{i.live}}</td>
+            <td class="text-center">{{i.liveWS}}</td>
+            <td class="text-center">{{i.fatherStatus}}</td>
+            <td class="text-center">{{i.motherStatus}}</td>
+            <td class="text-center">{{i.famIncome}}</td>
+            <td class="text-center">{{i.income}}</td>
+            <td class="text-center">{{i.brotherNum}}</td>
+            <td class="text-center">{{i.workAndStudy}}</td>
+
+        </tr>
+        
+        {% endfor %}
+    </table>
+
+    <!-- -----------table two--------------- -->
+
+    <table class="mt-5 table table-striped table-hover">
+        <tr class="bg-success">
+            <td class="col text-white text-center">الاسم</td>
+            <td class="col text-white text-center">من يدفع الرسوم</td>
+            <td class="col text-white text-center">هل تجد صعوبة في الدفع</td>
+            <td class="col text-white text-center">فترة سداد الرسوم بين السمسترين</td>
+            <td class="col text-white text-center">التوفيق بين الرسوم و المنصرفات</td>
+            <td class="col text-white text-center">هل المصاريف اليومية تكفي</td>
+            <td class="col text-white text-center">رسوم الادوات الهندسية</td>
+            <td class="col text-white text-center">هل ستدعم الصندوق ماديا</td>
+            <td class="col text-white text-center">هل ستدعم الصندوق باي شكل</td>
+            <td class="col text-white text-center">الاشتراك الذي تفضله</td>
+        </tr>
+        {% for i in data %}
+
+        <tr>
+            <td class="text-center">{{i.name}}</td>
+            <td class="text-center">{{i.howPay}}</td>
+            <td class="text-center">{{i.hardPay}}</td>
+            <td class="text-center">{{i.timeSemiPay}}</td>
+            <td class="text-center">{{i.costAndPay}}</td>
+            <td class="text-center">{{i.enoughCost}}</td>
+            <td class="text-center">{{i.engTool}}</td>
+            <td class="text-center">{{i.socialBox}}</td>
+            <td class="text-center">{{i.supportBox}}</td>
+            <td class="text-center">{{i.boxMony}}</td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+
+    <!-- -----------table three --------------- -->
+
+    <table class="mt-5 table table-striped table-hover">
+        <tr class="bg-success">
+            <td class="col-2 text-white text-center">الاسم</td>
+            <td class="col-10 text-white text-center">الملاحظات</td>
+
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td class="text-center">{{i.name}}</td>
+            <td class="text-center">{{i.note}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <footer class="mt-5">
+        <a href="{% url 'logout' %}" class="col-12 text-center text-dark">تسجيل خروج</a>
+    </footer>
+        
+    <script src="{% static '/js/bootstrap.js' %}"></script>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
